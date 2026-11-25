@@ -50,3 +50,23 @@ jobs:
         with:
           push: true
           tags: richsrd/api_homologacao
+
+  deploy:
+    needs: Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy na EC2
+        uses: appleboy/ssh-actions@v1.0.3
+        with:
+          host: 184.73.173.235
+          username: ubuntu
+          key: ${{secrets.CHAVE}}
+          script: |
+                echo "Acesso Liberado"
+                sudo docker pull richsrd/api_homologacao
+                sudo docker stop api_homologacao 2>/dev/null || true
+                sudo docker rm api_homologacao 2>/dev/null || true
+                # instalar nova versão
+
+                sudo docker run --name api_homologacao -d -p 80:80 richsrd/api_homologacao
