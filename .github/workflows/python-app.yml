@@ -62,7 +62,7 @@ jobs:
         with:
           host: 54.235.142.184
           username: ubuntu
-          key: ${{secrets.CHAVE}}
+          key: ${{secrets.CHAVE_PROD}}
           script: |
                 echo "Acesso Liberado"
                 sudo docker pull richsrd/api_producao
