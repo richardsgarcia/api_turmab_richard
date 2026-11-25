@@ -69,5 +69,5 @@ jobs:
                 sudo docker stop api_producao 2>/dev/null || true
                 sudo docker rm api_producao 2>/dev/null || true
                 # instalar nova versão
-                sudo docker run --name api_producao -d -p 80:80 richsrd/api_producao
+                sudo docker run --name api_producao -d -p 80:8080 richsrd/api_producao
       
