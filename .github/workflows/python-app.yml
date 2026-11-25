@@ -60,7 +60,7 @@ jobs:
       - name: Deploy na EC2
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 54.235.142.184
+          host: 98.87.81.177
           username: ubuntu
           key: ${{secrets.CHAVE_PROD}}
           script: |
